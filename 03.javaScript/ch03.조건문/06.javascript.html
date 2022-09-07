@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function age(){
+            const year = Number(document.getElementById('year').value);
+            const month = Number(document.getElementById('month').value);
+            const day = Number(document.getElementById('day').value);
+            const res = document.getElementById('result');
+            const mom = new Date()
+            if (mom.getMonth > month) {
+                res.innerHTML =`<h4> 만,${(mom.getFullYear()-year)+1}세 입니다.</h4>`
+            } else {
+                res.innerHTML =`<h4> 만,${mom.getFullYear()-year}세 입니다.</h4>`
+            }
+
+        }
+        function year(){
+            const year_2 = Number(document.getElementById('year_2').value);
+            const res2 = document.getElementById('result_2')
+            if (year_2 % 400 == 0){
+                res2.innerHTML = `<h4> ${year_2}는 윤년입니다.</h4>` 
+            } else if (year_2 % 100 == 0){
+                res2.innerHTML =`<h4> ${year_2}는 평년입니다.</h4>`
+            } else if (year_2 % 4 == 0){
+                res2.innerHTML = `<h4> ${year_2}는 윤년입니다.</h4>`
+            } else{
+                res2.innerHTML = `<h4> ${year_2}는 입니다.</h4>`
+            }
+            //const result_y = year_2 % 400 == 0 ? '윤년' : year_2 % 100 == 0 ? '평년': year_2 % 4==0 ? '윤년' : year_2;
+            // res2.innerHTML = `<h4> ${year_2}는 ${result_y} 입니다.`
+
+        }
+        function grade(){
+            const score = Number(document.getElementById('score').value);
+            let num = Math.floor(score / 10);
+            const res3 = document.getElementById('result_3');
+            switch (num){
+                case 10:
+                case 9:
+                    res3.innerHTML = `<h4> ${score}는 A입니다.</h4>`
+                    break;
+                case 8:
+                    res3.innerHTML = `<h4> ${score}는 B입니다.</h4>`
+                    break;
+                case 7:
+                    res3.innerHTML = `<h4> ${score}는 C입니다.</h4>`
+                    break;
+                case 6:
+                    res3.innerHTML = `<h4> ${score}는 D입니다.</h4>`
+                    break;
+                default :
+                    res3.innerHTML = `<h4> ${score}는 F입니다.</h4>`
+                    break;
+
+            }
+
+        }
+        
+
+    </script>
+</head>
+<body style="margin: 50px;">
+    <input type="text" id="year" placeholder="년도를 입력하세요 ex)1996">
+    <input type="text" id="month" placeholder="월을 입력하세요 ex)06">
+    <input type="text" id="day" placeholder="일을 입력하세요 ex)03">
+    <button onclick="age()">확인</button>
+    <br>
+    <p id="result"></p>
+    <hr>
+    <br>
+    <input type="text" id="year_2" placeholder="년도를 입력하세요 ex)1996" >
+    <br>
+    <button onclick="year()">확인</button>
+    <br>
+    <p id="result_2"></p>
+    <br>
+    <hr>
+    <input type="text" id="score" placeholder="1~ 100사이 점수를 입력해 주세요" >
+    <br>
+    <button onclick="grade()">확인</button>
+    <br>
+    <p id="result_3"></p>
+    <br>
+</body>
+</html>
