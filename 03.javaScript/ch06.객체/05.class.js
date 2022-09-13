@@ -6,8 +6,12 @@ class Person{
         this.age = age;
         this.gender = gender;
     }
+    intro(){
+        console.log(`저는 ${this.name}이고 나이는 ${this.age}이며 ${this.gender} 입니다.`)
+    }
 }
 
 james = new Person('제임스', 28, '남자');
 
 console.log(james)
+james.intro();
