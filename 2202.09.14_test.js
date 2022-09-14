@@ -1,11 +1,11 @@
 // 1번째 문제
 const num = Math.ceil((Math.random() * 9)+1);
 const num2 = Math.ceil((Math.random() * 20)+10);
-function First(num,num2){
+function First(x=num,y=num2){
     const fristarray = [];
-    if (num + 4 <= num2){
-        for(let i=num; i<= num2; i++){
-            if ( i == num+1 || i == num2-1) {
+    if (x + 4 <= y){
+        for(let i=x; i<= y; i++){
+            if ( i == x+1 || i == y-1) {
                 //pass;
             }else{
                 fristarray.push(`2**${i}`)
@@ -13,11 +13,11 @@ function First(num,num2){
 
         }
     }else{
-        First(num,num2);
+        First(x=num,y=num2);
     }
     return fristarray;
 }
-console.log('1번째 정답:',First(num,num2),num,num2);
+console.log('1번째 정답:',First(),num,num2);
 
 //2번째 문제
 const text = `
@@ -44,17 +44,17 @@ console.log('2번째 정답:', conut);
 // 3번째 문제
 const num3 = Math.ceil((Math.random() * 89)+10);
 const num4 = Math.ceil((Math.random() * 89)+10);
-function Three(num3,num4){
+function Three(x=num3,y=num4){
     const numbers=[];
     const numbers2 = [];
     const result =[];
-    for (let i=1; i<=num3; i++){
-        if (num3 % i == 0){
+    for (let i=1; i<=x; i++){
+        if (x % i == 0){
             numbers.push(i);
         }
     }
-    for (let j=1; j<=num4; j++){
-        if (num4 % j == 0){
+    for (let j=1; j<=y; j++){
+        if (y % j == 0){
             numbers2.push(j);
         }
     }
@@ -69,7 +69,7 @@ function Three(num3,num4){
     return result
 }
 
-console.log('3번째 정답 : ',Three(num3,num4), num3,num4);
+console.log('3번째 정답 : ',Three(), num3,num4);
 
 //4번째 정답
 const cars = ['buick skylark 320', 'plymouth satellite', 'amc rebel sst', 'ford torino'];
