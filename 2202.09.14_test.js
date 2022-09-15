@@ -2,7 +2,7 @@
 const num = Math.ceil((Math.random() * 9)+1);
 const num2 = Math.ceil((Math.random() * 20)+10);
 function First(x=num,y=num2){
-    const fristarray = [];
+    let fristarray = [];
     if (x + 4 <= y){
         for(let i=x; i<= y; i++){
             if ( i == x+1 || i == y-1) {
