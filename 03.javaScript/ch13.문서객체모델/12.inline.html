@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인 이벤트</title>
+    <script>
+        function clicked() {
+            alert('JS 클릭2')
+        }
+        window.onload = function(){
+            const button4 = document.getElementById('button4');
+            button4.onclick = function() {
+                alert('js 클릭3')
+            };
+            const button5 =document.getElementById('button5');
+            button5.addEventListener('click', () => {
+                alert('js 클릭4')
+            });
+            button4.addEventListener('mouseover', () => {
+                const h3= document.createElement('h3');
+                const textNode = document.createTextNode('마우스 오버 이벤트 발생');
+                h3.appendChild(textNode);
+                document.body.appendChild(h3);     
+
+            });
+            button4.addEventListener('mouseout', () => {
+                const h3 =document.querySelector('h3');
+                document.body.removeChild(h3);
+
+            })
+        }
+    </script>
+</head>
+<body>
+    <button onclick="alert('클릭1')";>버튼</button>
+    <button onclick="clicked()";>버튼2</button>
+    <button id ='button4';>버튼3</button>
+    <button id = 'button5';>버튼5</button>
+    <button ondblclick="alert('더블클릭')";>버튼</button>
+</body>
+</html>

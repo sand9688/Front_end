@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+    <script>
+        function acTion1(){
+            document.getElementById('result').innerHTML = '';
+            const num = Number(document.getElementById('num').value);
+            const num2 = Number(document.getElementById('num2').value);
+            if (num <= 0 || num2-num < 4 || num > num2) {
+                document.getElementById('result').innerHTML += '0이상의 숫자를 입력하거나 앞수 보다 뒷수가 4이상 커야 합니다.'
+            }else{
+                for(let i = num; i<= num2; i++){
+                    if ( i == num+1 || i == num2-1){
+                        //pass;
+                    }else{
+                        document.getElementById('result').innerHTML += `${2**i}\n\n`;
+                    }
+                }
+            }
+        }
+        function acTion2(){
+            document.getElementById('result2').innerHTML = '';
+            const num3 = Number(document.getElementById('num3').value);
+            const num4 = Number(document.getElementById('num4').value);
+            const measure = [];
+            const measure2 = [];
+            const samemeasure = [];
+            for (let i=1; i<=num3; i++){
+                if (num3 % i == 0){
+                    measure.push(i)
+                }
+            }
+            for (let j=1; j<=num4; j++){
+                if (num4 % j ==0 ) {
+                    measure2.push(j)
+                }
+            }
+            for (let number of measure){
+                for (let number2 of measure2){
+                    if ( number2 == number ){
+                        document.getElementById('result2').innerHTML  += `${number2}\n\n`
+                    }
+                }
+            }
+
+        }
+
+        function reMove(){
+            const rersults = document.querySelectorAll('h3');
+            for (let result of rersults){
+                document.body.querySelector('h3').innerHTML='';
+            }
+            
+        }
+    </script>
+</head>
+<body style="margin: 20px;">
+    <button onclick="reMove()";>다사히기</button>
+    <hr>
+    <input type="number" id="num" placeholder="정수를 입력하세요">
+    <input type="number" id="num2" placeholder="정수를 입력하세요">
+    <hr>
+    <button onclick="acTion1()";>결과확인</button>
+    <h3 id="result"></h3>
+    <hr>
+    <input type="number" id="num3" placeholder="정수를 입력하세요">
+    <input type="number" id="num4" placeholder="정수를 입력하세요">
+    <hr>
+    <button onclick="acTion2()";>결과확인</button>
+    <h3 id="result2"></h3>
+
+
+</body>
+</html>
