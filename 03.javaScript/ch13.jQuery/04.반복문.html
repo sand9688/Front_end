@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체 반복</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            // const lis = $('li');
+            // for (let i=0; i<lis.length; i++){
+            //     const li = lis.get(i);
+            //     if (i % 2 == 0) {
+            //         $(li).css('color','red');
+            //     }else{
+            //         $(li).css('backgroundColor','beige');
+            //     }
+
+            // }
+            $('li').each(function(index, element){ 
+                if (index % 2 == 0) {
+                     $(element).css('color','red');
+                 }else{
+                     $(element).css('backgroundColor','beige');
+                 }
+            });
+            $('.national').each(function(index,element){
+                if (index % 2 == 0 ){
+                    $(this).css('fontSize','30px');
+                }else{
+                    $(this).css('fontSize','20px');
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <ul id="fruits">내가 좋아하는 과일
+        <li class="national">사과</li>
+        <li class="national">감</li>
+        <li class="foreign">바나나</li>
+        <li class="foreign">파인애플</li>
+    </ul>
+    <hr>
+    <ul id="food">재가 좋아하는 음식
+        <li class="national">김치</li>
+        <li class="national">갈비</li>
+        <li class="foreign">파스타</li>
+    </ul>
+</body>
+</html>
