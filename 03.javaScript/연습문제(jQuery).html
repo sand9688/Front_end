@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <script>
+        $(document).ready(function(){
+            $('#Q1, #Q2').hide();
+            $('#show1').click(function(e){
+                $('#Q1').show();
+            })
+            $('#show2').click(function(e){
+                $('#Q2').show();
+            })
+            $('#action1').click(function(e){
+                acTion1();
+            })
+            $('#action2').click(function(e){
+                acTion2();
+            })
+            $('#hide1').click(function(e){
+                $('#Q1').hide();
+            })
+            $('#hide2').click(function(e){
+                $('#Q2').hide();
+            })
+        })
+        
+        function acTion1(){
+            $('#result').html('');
+            const num = Number($('#num').val());
+            const num2 = Number($('#num2').val());
+            if (num <= 0 || num2-num < 4 || num > num2) {
+                $('#result').html('0이상의 숫자를 입력하거나 앞수 보다 뒷수가 4이상 커야 합니다.')
+            }else{
+                for(let i = num; i<= num2; i++){
+                    if ( i == num+1 || i == num2-1){
+                        //pass;
+                    }else{
+                        $('<b></b>').text(`${2**i}\n`).appendTo('#result');
+                    }
+                }
+            }
+        }
+        function acTion2(){
+            $('#result2').html('');
+            const num3 = Number($('#num3').val());
+            const num4 = Number($('#num4').val());
+            const measure = [];
+            const measure2 = [];
+            const samemeasure = [];
+            for (let i=1; i<=num3; i++){
+                if (num3 % i == 0){
+                    measure.push(i)
+                }
+            }
+            for (let j=1; j<=num4; j++){
+                if (num4 % j ==0 ) {
+                    measure2.push(j)
+                }
+            }
+            for (let number of measure){
+                for (let number2 of measure2){
+                    if ( number2 == number ){
+                        $('<b></b>').text(`${number2}\n`).appendTo('#result2')
+                    }
+                }
+            }
+        }
+
+        
+    </script>
+</head>
+<body>
+        <hr>
+        <h3>문제1</h3>
+        <p>두개의 정수를 입력으로 받습니다.(첫번째 값의 범위는 1~20, 
+            두 번째 값의 범위는 10~30이며 첫 번째 값은 두 번째 값보다 4 이상 작아야 합니다).<br>
+            첫 번째 정수부터 두 번째 정수까지를 지수로 하는 2의 거듭제곱 배열을 
+            출력하는 프로그램을 만드세요.<br> 
+            단, 배열의 두 번째 요소와 뒤에서 두 번째 요소는 삭제한 뒤 출력하세요.</p>
+            <button id="show1">입력하기</button>
+        <hr>
+        <div id="Q1">
+            <input type="number" id="num" placeholder="정수를 입력하세요">
+            <input type="number" id="num2" placeholder="정수를 입력하세요">
+            <button id="action1";>결과확인</button>
+            <h3 id="result"></h3>
+            <br>
+            <button id ="hide1">결과 창 닫기</button>
+        </div>
+        <hr>
+        <h3>문제3</h3>
+        <p>10보다 큰 정수 두개를 입력으로 받습니다.<br>
+            두 숫자의 공약수를 세트 형태로 구하도록 프로그램을 작성하세요.</p>
+            <button id="show2">입력하기</button>
+        <hr>
+        <div id="Q2">
+            <input type="number" id="num3" placeholder="정수를 입력하세요">
+            <input type="number" id="num4" placeholder="정수를 입력하세요">
+            <button id="action2";>결과확인</button>
+            <h3 id="result2"></h3>
+            <br>
+            <button id="hide2">결과 창 닫기</button>
+        </div>
+</body>
+</html>
